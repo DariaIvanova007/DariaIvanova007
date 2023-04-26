@@ -1,0 +1,39 @@
+form {
+    margin: auto;
+    width: 35%;
+    color: #fff;
+    background-color: #021927;
+}
+
+input[type=submit] {
+    background-color:#021927;
+    color: #fff;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #021927;
+}
+
+body {
+    background-image: url('/static/images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color:#fff;
+}
+
+div { 
+    margin-bottom: 10px; 
+}
+
+label { 
+    display: inline-block; 
+    width: 300px; 
+}
