@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><p>Прогнозирование конечных свойств новых материалов (композиционных материалов)»</p></title>
+
+        <!--Подключение файла CSS-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <font face="consolas">
+    <h1 align="center">Композиционные материалы</h1>
+    <br>
+    <!--Форма заполнения признаков для подачи в модели-->
+    
+    <form action="{{url_for('main')}}" method="POST">
+        <fieldset>
+            <legend>Введите значения признаков</legend>
+
+            <div><label>Соотношение матрица-наполнитель:</label><input name = "feature1" type="float" required></div>
+            <div><label>Плотность, кг/м3:</label><input name = "feature2" type="float" required></div>
+            <div><label>Модуль упругости, ГПа:</label><input name = "feature3" type="float" required></div>
+            <div><label>Количество отвердителя, м.%:</label><input name = "feature4" type="float" required></div>
+            <div><label>Содержание эпоксидных групп,%_2:</label><input name = "feature5" type="float" required></div>
+            <div><label>Температура вспышки, С_2:</label><input name = "feature6" type="float" required></div>
+            <div><label>Поверхностная плотность, г/м2:</label><input name = "feature7" type="float" required></div>
+            <div><label>Потребление смолы, г/м2:</label><input name = "feature8" type="float" required></div>
+            <div><label>Угол нашивки, градусы:</label><input name = "feature9" type="float" required></div>
+            <div><label>Шаг нашивки:</label><input name = "feature10" type="float" required></div>
+            <div><label>Плотность нашивки:</label><input name = "feature11" type="float" required></div>
+
+            <input type="submit" value="Вычислить">
+        </fieldset> 
+    </form>
+    </font>
+
+    <!--Контейнер для результатов-->
+    <div class="result" align="left">
+
+        
+        {% if elasticity_result %}
+             <!--Отображаем результат предсказания целевого признака "Модуль упругости при растяжении, ГПа"-->
+            <div><label> Модуль упругости при растяжении, ГПа: </label><output name="elasticity">{{elasticity_result}}</output></div>
+
+            <!--Отображаем результат предсказания целевого признака "Прочность при растяжении, МПа"-->
+            <div><label> Прочность при растяжении, МПа: </label><output name="strength">{{strength_result}}</output></div>
+        {% endif %}
+    </div>
+
+    <hr>
+    <h5 align="left">Проект выполнил слушатель курса "Аналитик данных (Data scientist)"<br>Иванова Дарья</h5>
+</html>
